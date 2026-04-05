@@ -1,0 +1,24 @@
+//Given an integer array nums, find the subarray with the largest sum, and return its sum.
+// Bruteforce Approach
+generate all subarrays using O(n^3) 
+
+// Better Approach 
+generate all subarrays using O(n^2)
+
+// Optimised Approach - kadane's Algo
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int sum=0;
+        int max=nums[0];  // nums={-1} answer will be -1
+        for(int i=0;i<nums.length;i++){
+            sum=sum+nums[i];
+            max=Math.max(max,sum);
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return max;
+    }
+}
+TC=O(n)
+SC=O(1)
